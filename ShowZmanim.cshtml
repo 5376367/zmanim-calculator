@@ -9,7 +9,7 @@
 @{ if (@ViewBag.FromIP == true)
     {
         <text>Address is from your IP, it may be incorrect</text>;
-     }
+    }
 }
 
 
@@ -21,40 +21,75 @@
 
 
     <hr />
+    <table>
 
-    <text>Alos</text>
-    @Model.AlosSixteenPointOne
-    <br />
-    <text>Sunrise</text>
-    @Model.Sunrise
-    <br />
-    <text>    Shma Magen Avaraham
-    </text> @Model.ShmaMagen
-    <br />
-    <text>Shma Gra</text>
-    @Model.ShmaGra
-    <br />
-    <text>Chatzos</text>
-    @Model.Chatzos
-    <br />
-    <text>Sunset</text>
-    @Model.Sunset
-    <br />
-    <text>Tzeis </text>
-    @Model.TzeisEightPointFive
+        <tr>
+            <td>Dawn </td>
+            <td>@Model.AlosSixteenPointOne</td>
+            <td dir="rtl">עלות השחר</td>
+        </tr>
+        <tr>
+            <td>Sunrise</td>
+            <td>@Model.Sunrise</td>
+            <td dir="rtl">נץ החמה</td>
+        </tr>
+        <tr>
+            <td>Last time to say Shma (MGA)</td>
+            <td>@Model.ShmaMagen</td>
+            <td dir="rtl">סוף זמן קריאת שמע (מג"א)</td>
+        </tr>
+        <tr>
+            <td>Last time to say Shma (GRA)</td>
+            <td>@Model.ShmaGra</td>
+            <td dir="rtl">סוף זמן קריאת שמע (גר"א)</td>
 
+        </tr>
+        <tr>
+            <td>Midday</td>
+            <td>@Model.Chatzos</td>
+            <td dir="rtl">חצות</td>
+        </tr>
+        <tr>
+            <td>Plag Hamincha</td>
+            <td>@Model.Plag</td>
+            <td dir="rtl">פלג המנחה</td>
+        </tr>
+        <tr>
+            <td>Sunset</td>
+            <td>@Model.Sunset</td>
+            <td dir="rtl">שקיעת החמה</td>
+        </tr>
+        <tr>
+            <td>Nightfall</td>
+            <td>@Model.TzeisEightPointFive</td>
+            <td dir="rtl">לילה</td>
+        </tr>
+
+    </table>
     <hr />
-    <text>Change Location</text>
-    <input type="text" name="Name" value="@Model.Name" />
-    <br />
-    <text>Change date: </text>
-    <input type="date" name="date" value="@Model.Date.ToString("yyyy-MM-dd")" />
-    <br />
+    <table>
+        <tr>
+            <td>Change Location*</td>
+            <td><input type="text" name="Name" value="@Model.Name" /></td>
+            <td dir="rtl">מקום (אפשר בעברית)</td>
+        </tr>
+        <tr>
+            <td>Change Date</td>
+            <td> <input type="date" name="date" value="@Model.Date.ToString("yyyy-MM-dd")" /></td>
+            <td dir="rtl">בחור תאריך</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>  <input type="submit" value="GO - הצג" class="btn btn-default" formaction="/Home/TryAgain" /></td>
+            <td></td>
+        </tr>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Show New" class="btn btn-default" formaction="/Home/TryAgain" />
-        </div>
-    </div>
+    </table>
+    <text>*Any of the following: Landmark, Address, City, Country, UK post code, US post code, etc, etc</text>
+   
+    
+   
+
+    
 
 }
