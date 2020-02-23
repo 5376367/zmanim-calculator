@@ -2,8 +2,13 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<h1>Zmanim for @Model.Name for @Model.Date.ToShortDateString()</h1>
+<h1>Zmanim for @Model.Name for @Model.Date.ToString("dd/MM/yyyy")</h1>
 <text>  @Model.GMTTZ</text>
+@{ if (@ViewBag.IsDST == true)
+    {
+        <text> (Daylight Saving Time)</text>;
+    }
+}
 <br />
 
 @{ if (@ViewBag.FromIP == true)
@@ -86,10 +91,10 @@
 
     </table>
     <text>*Any of the following: Landmark, Address, City, Country, UK post code, US post code, etc, etc</text>
-   
-    
-   
 
-    
+
+
+
+
 
 }
