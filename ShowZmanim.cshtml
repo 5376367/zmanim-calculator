@@ -1,0 +1,60 @@
+﻿@model Working_With_APIs.Models.Zman
+@{
+    ViewBag.Title = "Home Page";
+}
+<h1>Zmanim for @Model.Name for @Model.Date.ToShortDateString()</h1>
+<text>  @Model.GMTTZ</text>
+<br />
+
+@{ if (@ViewBag.FromIP == true)
+    {
+        <text>Address is from your IP, it may be incorrect</text>;
+     }
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <hr />
+
+    <text>Alos</text>
+    @Model.AlosSixteenPointOne
+    <br />
+    <text>Sunrise</text>
+    @Model.Sunrise
+    <br />
+    <text>    Shma Magen Avaraham
+    </text> @Model.ShmaMagen
+    <br />
+    <text>Shma Gra</text>
+    @Model.ShmaGra
+    <br />
+    <text>Chatzos</text>
+    @Model.Chatzos
+    <br />
+    <text>Sunset</text>
+    @Model.Sunset
+    <br />
+    <text>Tzeis </text>
+    @Model.TzeisEightPointFive
+
+    <hr />
+    <text>Change Location</text>
+    <input type="text" name="Name" value="@Model.Name" />
+    <br />
+    <text>Change date: </text>
+    <input type="date" name="date" value="@Model.Date.ToString("yyyy-MM-dd")" />
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Show New" class="btn btn-default" formaction="/Home/TryAgain" />
+        </div>
+    </div>
+
+}
